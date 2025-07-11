@@ -123,10 +123,12 @@
       margin-bottom: 0.5rem;
     }
 .barre {
-  font-size: 1rem;
+  font-size: 200%;
   cursor: pointer;
   font-family: monospace;
   user-select: none;
+  color:black;
+  
 }
 .carac {
   display: inline-block;
@@ -229,7 +231,29 @@
 .tab-content.active {
   display: block;
 }
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espace entre le texte et le bouton */
+}
 
+#garouButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#garouButton img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+#garouButton:hover {
+  transform: scale(1.1);
+}
 #outils button {
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
@@ -252,7 +276,12 @@
   </style>
 </head>
 <body>
-  <h1>Castle Night</h1>
+<h1 class="title">
+  Castle Night
+  <button id="garouButton">
+    <img src="loup_tranform.png" alt="Ajouter" />
+  </button>
+</h1>
   <div class="tabs">
   <button class="tab-button active" onclick="openTab('identite')">Identité</button>
   <button class="tab-button" onclick="openTab('stats')">Stats</button>
@@ -352,11 +381,7 @@
   <div class="section">
     <h2>Compétences</h2>
     <div id="skills-container">
-      <div class="skill-entry">
-        <input type="text" placeholder="Nom de la compétence">
-        <input type="number" min="1" max="5" value="1" onchange="updateSkillBar(this)">
-        <span class="skill-bar">■¤¤¤¤</span>
-      </div>
+      
     </div>
     <button class="add-skill-button" onclick="addSkill()">Ajouter une compétence</button>
   </div>
@@ -398,8 +423,18 @@
   <label>Focus</label>
   <div id="focus" class="barre"></div>
 </div>
-<div>
+
+</div>
+    </div>
+	
+	<div class="section">
+    <h2>Pouvoir</h2>
+    <div class="grid-3">
+  <div>
   <label>Essence</label>
+  <div id="essence" class="barre"></div>
+</div>
+  <label>Divinité</label>
   <div id="essence" class="barre"></div>
 </div>
 </div>
@@ -459,10 +494,17 @@ const factionOptions = {
   function updateFactionOptions() {
     const race = document.getElementById("race-select").value;
     const factionSelect = document.getElementById("faction-select");
+	const zoneLoupGarou = document.getElementById("metamorphebtn")
 
     factionSelect.innerHTML = ""; // Reset options
 
     if (!factionOptions[race]) {
+      factionSelect.disabled = true;
+      const option = new Option("-- Choisir une race d'abord --", "");
+      factionSelect.appendChild(option);
+      return;
+    }
+	if (factionOptions["Métamorphe"]) {
       factionSelect.disabled = true;
       const option = new Option("-- Choisir une race d'abord --", "");
       factionSelect.appendChild(option);
@@ -539,7 +581,7 @@ function updateStatBar(id, value, maxBase, maxLimit = 20) {
 function updateSkillBar(input) {
   const value = parseInt(input.value || 1);
   const span = input.parentElement.querySelector('.skill-bar');
-  span.textContent = '■'.repeat(value) + '¤'.repeat(5 - value);
+  span.textContent = '■'.repeat(value) + '¤'.repeat(10 - value);
 }
 
 function addSkill() {
@@ -547,8 +589,8 @@ function addSkill() {
   const div = document.createElement('div');
   div.className = 'skill-entry';
   div.innerHTML = '<input type="text" placeholder="Nom de la compétence" onblur="saveData()">' +
-                  '<input type="number" min="1" max="5" value="1" onchange="updateSkillBar(this)" onblur="saveData()">' +
-                  '<span class="skill-bar">■¤¤¤¤</span>'+
+                  '<input type="number" min="1" max="10" value="1" onchange="updateSkillBar(this)" onblur="saveData()">' +
+                  '<span class="skill-bar">■¤¤¤¤¤¤¤¤¤</span>'+
 				  '<button type="button" class="remove-button" onclick="this.parentElement.remove(); saveData()">✖</button>';
   container.appendChild(div);
 }
@@ -558,8 +600,8 @@ function addPower(containerId) {
   const div = document.createElement('div');
   div.className = 'skill-entry';
   div.innerHTML = '<input type="text" placeholder="Nom du pouvoir" onblur="saveData()">' +
-                  '<input type="number" min="1" max="5" value="1" onchange="updateSkillBar(this)" onblur="saveData()">' +
-                  '<span class="skill-bar">■¤¤¤¤</span>'+
+                  '<input type="number" min="1" max="10" value="1" onchange="updateSkillBar(this)" onblur="saveData()">' +
+                  '<span class="skill-bar">■¤¤¤¤¤¤¤¤¤</span>'+
 				  '<button type="button" class="remove-button" onclick="this.parentElement.remove(); saveData()">✖</button>';
   container.appendChild(div);
 }
@@ -634,13 +676,13 @@ function loadData() {
 }
 // --- Nouveau : Affichage interactif Vitalité, Égo, Focus en blocs ■⬚▩¤ ---
 
-const maxBar = 20;
+const maxBar = 15;
 
 const symbols = {
-  plein: "■",   // utilisé
+  plein: "◼",   // utilisé
   vide: "⬚",    // perdu
   bonus: "▩",   // bonus
-  possible: "¤" // futur possible
+  possible: "⛶" // futur possible
 };
 
 // fonction pour afficher la barre interactive
@@ -668,6 +710,30 @@ function renderBar(containerId, base, current) {
   }
 }
 
+function renderBarEssence(containerId, base, current) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
+  for (let i = 0; i < maxBar*2; i++) {
+    const span = document.createElement("span");
+    span.className = "carac";
+    if (i < Math.min(current, base)) span.textContent = symbols.plein;
+    else if (i < base) span.textContent = symbols.vide;
+    else if (i < current) span.textContent = symbols.bonus;
+    else span.textContent = symbols.possible;
+
+    span.dataset.index = i;
+
+    // interaction clic pour changer la valeur actuelle (current)
+    span.addEventListener("click", () => {
+      current = i + 1;
+      renderBarEssence(containerId, base, current);
+      // Ici tu pourrais aussi mettre à jour d’autres variables ou inputs
+    });
+
+    container.appendChild(span);
+  }
+}
+
 // fonction qui récupère les stats physiques, sociales, mentales et met à jour les barres
 function updateBarres() {
   const physique = parseInt(document.getElementById('statPhys').value) || 0;
@@ -681,7 +747,7 @@ const essence = aspect + racial;
   renderBar('vitalite', physique, physique);
   renderBar('ego', social, social);
   renderBar('focus', mental, mental);
-  renderBar('essence', essence, essence);
+  renderBarEssence('essence', essence, essence);
 }
 
 function playRPC(joueur) {
