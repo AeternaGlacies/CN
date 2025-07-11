@@ -236,23 +236,72 @@
   align-items: center;
   gap: 10px; /* espace entre le texte et le bouton */
 }
+body.garou-active {
+  background-image: fondbestial.jpg;
+  background-repeat: no-repeat, repeat;
+  background-position: center center, center center;
+  background-size: contain, cover;
+  background-blend-mode: lighten;
+  transition: background-image 0.5s ease;
+  opacity: 1;
+}
+body.garou-active::before {
+  content: "";
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  background-image: url("griffes.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%   { transform: translate(-50%, -50%) scale(1); }
+  25%  { transform: translate(-50%, -50%) scale(1.05); }
+  40%  { transform: translate(-50%, -50%) scale(0.97); }
+  60%  { transform: translate(-50%, -50%) scale(1.04); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
 
 #garouButton {
   background: none;
-  border: none;
-  padding: 0;
+  border: 2px solid #444; /* couleur et épaisseur du contour */
+  border-radius: 8px;      /* coins arrondis */
+  padding: 4px;            /* espace entre l’image et le bord */
   cursor: pointer;
-  transition: transform 0.2s;
+ display: none;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#garouButton.visible {
+  display: inline-block;
+  opacity: 1;
+  transform: scale(1);
 }
 
 #garouButton img {
-  width: 30px;
+width: 30px;
   height: 30px;
   vertical-align: middle;
+  display: block;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+}
+#garouButton img.clicked {
+  transform: scale(1.2);
+  opacity: 0.8;
 }
 
 #garouButton:hover {
   transform: scale(1.1);
+  border-color: #888; /* changement de couleur au survol */
 }
 #outils button {
   font-size: 1.5rem;
@@ -279,7 +328,7 @@
 <h1 class="title">
   Castle Night
   <button id="garouButton">
-    <img src="loup_tranform.png" alt="Ajouter" />
+    <img src="human_tranform.png" alt="Ajouter" onclick="toggleGarouImage()" />
   </button>
 </h1>
   <div class="tabs">
@@ -504,12 +553,11 @@ const factionOptions = {
       factionSelect.appendChild(option);
       return;
     }
-	if (factionOptions["Métamorphe"]) {
-      factionSelect.disabled = true;
-      const option = new Option("-- Choisir une race d'abord --", "");
-      factionSelect.appendChild(option);
-      return;
-    }
+	  if (race === "Métamorphe") {
+  garouButton.classList.add("visible");
+} else {
+  garouButton.classList.remove("visible");
+}
 
     factionSelect.disabled = false;
     const placeholder = new Option("-- Choisir --", "");
@@ -521,7 +569,29 @@ const factionOptions = {
     });
   }
 
+function toggleGarouImage() {
+  const button = document.getElementById("garouButton");
+  const img = button.querySelector("img");
+  const currentSrc = img.getAttribute("src");
 
+  const imageNormale = "human_tranform.png";
+  const imageTransformee = "loup_tranform.png";
+
+  // Changement d’image
+  if (currentSrc === imageNormale) {
+    img.setAttribute("src", imageTransformee);
+    document.body.classList.add("garou-active"); // ← activation des griffes
+  } else {
+    img.setAttribute("src", imageNormale);
+    document.body.classList.remove("garou-active"); // ← retrait des griffes
+  }
+
+  // Effet visuel rapide
+  img.classList.add("clicked");
+  setTimeout(() => {
+    img.classList.remove("clicked");
+  }, 200);
+}
 
 
 //----------------------------------
