@@ -409,7 +409,7 @@ button.shield-btn:active {
   </select>
 </div>
 <div>
-    <label for="dualite-select">Dualité :</label>
+    <label for="dualite-select">Stat Préféré :</label>
 <select id="dualite-select" onchange="placerLosangeDepuisMenu()">
 <option value="">-- Choisir --</option>
   <option value="physique">Physique</option>
@@ -418,6 +418,7 @@ button.shield-btn:active {
 </select>
 </div>
     <div><label>Joueur</label><input type="text" id="joueur"></div>
+    <div><label>Dualité</label><input type="text" id="duali"></div>
     <div>
   <label>Faction</label>
   <select id="faction-select" disabled>
@@ -1054,9 +1055,9 @@ function playRPC(joueur) {
   if (joueur === ordi) {
     resultat = "Égalité !";
   } else if (
-    (joueur === '🪨' && ordi === '✂️') ||
-    (joueur === '📄' && ordi === '🪨') ||
-    (joueur === '✂️' && ordi === '📄')
+    ( === '🪨' && ordi === '✂️') ||
+    ( === '📄' && ordi === '🪨') ||
+    ( === '✂️' && ordi === '📄')
   ) {
     resultat = "Tu gagnes !";
   } else {
@@ -1064,7 +1065,7 @@ function playRPC(joueur) {
   }
 
   const resEl = document.getElementById('rpc-result');
-  resEl.textContent = `Tu : ${joueur} — Ordi : ${ordi} → ${resultat}`;
+  resEl.textContent = `Tu : ${} — Ordi : ${ordi} → ${resultat}`;
   resEl.classList.remove('hidden');
 
   // ⏱️ Ajout d’un fondu après 5 secondes
