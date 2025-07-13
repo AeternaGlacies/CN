@@ -395,7 +395,7 @@ button.shield-btn:active {
 </div>
 <div id="identite" class="tab-content active">
   <div class="section grid-3">
-    <div><label>Nom</label><input type="text"></div>
+    <div><label>Nom</label><input type="text" id="nom"></div>
 <div>
   <label>Race</label>
   <select id="race-select" onchange="updateFactionOptions()">
@@ -409,7 +409,7 @@ button.shield-btn:active {
   </select>
 </div>
 <div>
-    <label for="dualite-select">Stat Préféré :</label>
+    <label for="dualite-select">Dualité :</label>
 <select id="dualite-select" onchange="placerLosangeDepuisMenu()">
 <option value="">-- Choisir --</option>
   <option value="physique">Physique</option>
@@ -417,17 +417,16 @@ button.shield-btn:active {
   <option value="social">Social</option>
 </select>
 </div>
-    <div><label>Joueur</label><input type="text"></div>
+    <div><label>Joueur</label><input type="text" id="joueur"></div>
     <div>
   <label>Faction</label>
   <select id="faction-select" disabled>
     <option value="">-- Choisir une race d'abord --</option>
   </select>
 </div>
-    <div><label>Aspect</label><input type="text"></div>
+    <div><label>Aspect</label><input type="text" id="aspect"></div>
   </div>
- <div><label>Joueur</label><input type="text"></div>
- <div><label>Dualité</label><input type="text"></div>
+
 <div class="section">
     <h2>Historiques</h2>
     <div class="grid-2">
@@ -745,6 +744,11 @@ function updateStatBar(id, value, maxBase, maxLimit = 20) {
 }
 
 // --- Gestion des compétences (déjà existante) ---
+function generateSkillBar(level) {
+  level = parseInt(level) || 1;
+  return '■'.repeat(level) + '¤'.repeat(10 - level);
+}
+
 
 function updateSkillBar(input) {
   const value = parseInt(input.value || 1);
@@ -752,26 +756,41 @@ function updateSkillBar(input) {
   span.textContent = '■'.repeat(value) + '¤'.repeat(10 - value);
 }
 
-function addSkill() {
+function addSkill(name = '', level = 1) {
   const container = document.getElementById('skills-container');
   const div = document.createElement('div');
   div.className = 'skill-entry';
-  div.innerHTML = '<input type="text" placeholder="Nom de la compétence" onblur="saveData()">' +
-                  '<input type="number" min="1" max="10" value="1" onchange="updateSkillBar(this)" onblur="saveData()">' +
-                  '<span class="skill-bar">■¤¤¤¤¤¤¤¤¤</span>'+
-				  '<button type="button" class="remove-button" onclick="this.parentElement.remove(); saveData()">✖</button>';
+
+  const bar = generateSkillBar(level);
+
+  div.innerHTML = `
+    <input type="text" placeholder="Nom de la compétence" value="${name}" onblur="saveData()">
+    <input type="number" min="1" max="10" value="${level}" onchange="updateSkillBar(this); saveData()">
+    <span class="skill-bar">${bar}</span>
+    <button type="button" class="remove-button" onclick="this.parentElement.remove(); saveData()">✖</button>
+  `;
   container.appendChild(div);
 }
+function generateSkillBar(level) {
+  level = parseInt(level) || 1;
+  return '■'.repeat(level) + '¤'.repeat(10 - level);
+}
 
-function addPower(containerId) {
-  const container = document.getElementById(containerId);
+function addPower(containerId, name = '', level = 1) {
+ const container = document.getElementById(containerId);
   const div = document.createElement('div');
   div.className = 'skill-entry';
-  div.innerHTML = '<input type="text" placeholder="Nom du pouvoir" onblur="saveData()">' +
-                  '<input type="number" min="1" max="10" value="1" onchange="updateSkillBar(this)" onblur="saveData()">' +
-                  '<span class="skill-bar">■¤¤¤¤¤¤¤¤¤</span>'+
-				  '<button type="button" class="remove-button" onclick="this.parentElement.remove(); saveData()">✖</button>';
-  container.appendChild(div);
+
+  const bar = generateSkillBar(level); // tu peux modifier cette fonction selon ton style
+
+  div.innerHTML = `
+    <input type="text" placeholder="Nom du pouvoir" value="${name}" onblur="saveData()">
+    <input type="number" min="1" max="10" value="${level}" onchange="updateSkillBar(this); saveData()">
+    <span class="skill-bar">${bar}</span>
+    <button type="button" class="remove-button" onclick="this.parentElement.remove(); saveData()">✖</button>
+  `;
+
+  container.appendChild(div)
 }
 
 function addTag(containerId, placeholderText) {
@@ -821,11 +840,62 @@ function saveData() {
   document.querySelectorAll('select').forEach(select => {
     data[select.id] = select.value;
   });
+  
+    const racialEntries = [];
+  document.querySelectorAll('#racial-container .skill-entry').forEach(entry => {
+    const name = entry.querySelector('input[type="text"]')?.value || '';
+    const level = entry.querySelector('input[type="number"]')?.value || '1';
+    racialEntries.push({ name, level });
+  });
+
+  data['racialPowers'] = racialEntries;
+  const skillEntries = [];
+  document.querySelectorAll('#skills-container .skill-entry').forEach(entry => {
+    const name = entry.querySelector('input[type="text"]')?.value || '';
+    const level = entry.querySelector('input[type="number"]')?.value || '1';
+    skillEntries.push({ name, level });
+  });
+  data['skills'] = skillEntries;
+  const aspectEntries = [];
+  document.querySelectorAll('#aspect-container .skill-entry').forEach(entry => {
+    const name = entry.querySelector('input[type="text"]')?.value || '';
+    const level = entry.querySelector('input[type="number"]')?.value || '1';
+    aspectEntries.push({ name, level });
+  });
+  data['aspectPowers'] = aspectEntries;
+
+  const autreEntries = [];
+  document.querySelectorAll('#autre-container .skill-entry').forEach(entry => {
+    const name = entry.querySelector('input[type="text"]')?.value || '';
+    const level = entry.querySelector('input[type="number"]')?.value || '1';
+    autreEntries.push({ name, level });
+  });
+  data['autrePowers'] = autreEntries;
+  const traits = [];
+  document.querySelectorAll('#traits-container input[type="text"]').forEach(input => {
+    traits.push(input.value);
+  });
+  data['traits'] = traits;
+
+  const story = [];
+  document.querySelectorAll('#story-container input[type="text"]').forEach(input => {
+    story.push(input.value);
+  });
+  data['story'] = story;
+
+
+
 
   localStorage.setItem('castleNightData', JSON.stringify(data));
 }
 function loadData() {
-  const saved = JSON.parse(localStorage.getItem('castleNightData'));
+  let saved;
+  try {
+    saved = JSON.parse(localStorage.getItem("castleNightData"));
+  } catch (e) {
+    console.warn("Erreur de chargement des données", e);
+    return;
+  }
   if (!saved) return;
 
   document.querySelectorAll('input[type="text"], input[type="number"]').forEach(input => {
@@ -836,10 +906,66 @@ function loadData() {
   document.querySelectorAll('select').forEach(select => {
     if (saved[select.id] !== undefined) select.value = saved[select.id];
   });
+  const racialContainer = document.getElementById('racial-container');
+  racialContainer.innerHTML = ''; // Vide avant de recréer
+
+  if (Array.isArray(saved.racialPowers)) {
+  const aspectContainer = document.getElementById('aspect-container');
+  aspectContainer.innerHTML = '';
+  if (Array.isArray(saved.aspectPowers)) {
+    saved.aspectPowers.forEach(power => {
+      addPower('aspect-container', power.name, power.level);
+    });
+  }
+
+  const autreContainer = document.getElementById('autre-container');
+  autreContainer.innerHTML = '';
+  if (Array.isArray(saved.autrePowers)) {
+    saved.autrePowers.forEach(power => {
+      addPower('autre-container', power.name, power.level);
+    });
+  }
+
+    saved.racialPowers.forEach(power => {
+      addPower('racial-container', power.name, power.level);
+    });
+  }
+
+  
+  const skillsContainer = document.getElementById('skills-container');
+  skillsContainer.innerHTML = '';
+  if (Array.isArray(saved.skills)) {
+    saved.skills.forEach(skill => {
+      addSkill(skill.name, skill.level);
+    });
+  }
 
   // Remise à jour visuelle
   updateAuto();
   updateBarres();
+  
+  const traitsContainer = document.getElementById('traits-container');
+  traitsContainer.innerHTML = '';
+  if (Array.isArray(saved.traits)) {
+    saved.traits.forEach(value => {
+      const div = document.createElement('div');
+      div.className = 'tag-entry';
+      div.innerHTML = '<input type="text" value="' + value + '">';
+      traitsContainer.appendChild(div);
+    });
+  }
+
+  const storyContainer = document.getElementById('story-container');
+  storyContainer.innerHTML = '';
+  if (Array.isArray(saved.story)) {
+    saved.story.forEach(value => {
+      const div = document.createElement('div');
+      div.className = 'tag-entry';
+      div.innerHTML = '<input type="text" value="' + value + '">';
+      storyContainer.appendChild(div);
+    });
+  }
+
   updateFactionOptions();
 }
 // --- Nouveau : Affichage interactif Vitalité, Égo, Focus en blocs ■⬚▩¤ ---
@@ -993,7 +1119,16 @@ loadData();
       .then(reg => console.log('Service worker enregistré', reg))
       .catch(err => console.error('Échec enregistrement SW', err));
   }
+
+function resetData() {
+  if (confirm("Es-tu sûr de vouloir réinitialiser toutes les données ?")) {
+    localStorage.removeItem('castleNightData');
+    location.reload();
+  }
+}
+
 </script>
-  
+
+<button onclick="resetData()">Réinitialiser la fiche</button>
 </body>
 </html>
