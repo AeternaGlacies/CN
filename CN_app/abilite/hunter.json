@@ -1,0 +1,258 @@
+{
+  "race_powers": [
+    {
+      "name": "Résistance",
+      "type": "Réflexif",
+      "description": "Résistance à effets débilitants ou contrôle mental, utilisable un nombre de fois égal au niveau du pouvoir par session."
+    },
+    {
+      "name": "Humanité",
+      "type": "1 Action, Maintenue",
+      "description": "Reprend forme humaine, perd les avantages Hunter et se fond parmi les humains."
+    },
+    {
+      "name": "Ténacité",
+      "type": "Passif",
+      "description": "Conserve physique à 0 vitalité, +1 dégât par niveau."
+    },
+    {
+      "name": "Cible Préférée",
+      "type": "Passif",
+      "description": "Détermine un type de proie ciblée mystiquement."
+    },
+    {
+      "name": "6e Sens",
+      "type": "Réflexif",
+      "description": "Détection d'entités invisibles ou cachées via 6e Sens."
+    },
+    {
+      "name": "Arme de Choix",
+      "type": "Passif",
+      "description": "Choisit une arme consacrée qui inflige +1 dégât et retrouve l’arme si perdue."
+    }
+  ],
+  "factions": [
+    {
+      "name": "Valkyrie",
+      "aspect": "Ordre",
+      "alignements": {
+        "Rédemption": [
+          {
+            "name": "Barrière",
+            "type": "1 Action, Maintenue",
+            "description": "Crée un champ de force protégeant le lanceur et alliés."
+          },
+          {
+            "name": "Soin",
+            "type": "1 Action",
+            "description": "Restaure 1 Vitalité par niveau de pouvoir."
+          },
+          {
+            "name": "Inspiration",
+            "type": "1 Action, Maintenue",
+            "description": "Donne +1 Égo par niveau et immunise à la Terreur."
+          }
+        ],
+        "Ferveur": [
+          {
+            "name": "Charge Éclair",
+            "type": "1 Action, Physique",
+            "description": "Charge rapide infligeant +1 dégât par niveau."
+          },
+          {
+            "name": "Avantage",
+            "type": "Réflexif",
+            "description": "Gain d’égalités contre cible pour scène."
+          },
+          {
+            "name": "Tactique",
+            "type": "Spécial",
+            "description": "Coordination d’équipe avec partage de stats et initiative."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Enfant Divin",
+      "aspect": "Lumière",
+      "alignements": {
+        "Rédemption": [
+          {
+            "name": "Purification",
+            "type": "1 Action, Maintenue",
+            "description": "Zone purifiant corruption, inflige dégâts par tour."
+          },
+          {
+            "name": "Bénédiction",
+            "type": "1 Action, Concentration",
+            "description": "Bénit objets : dégâts à ennemis ou armes."
+          },
+          {
+            "name": "Aveuglement",
+            "type": "1 Action",
+            "description": "Projette lumière aveuglante, dégâts au Focus."
+          }
+        ],
+        "Ferveur": [
+          {
+            "name": "Smite",
+            "type": "Physique vs Physique, 1 Action",
+            "description": "Dégâts à la Vitalité égaux au niveau."
+          },
+          {
+            "name": "Fanatisme",
+            "type": "Réflexif",
+            "description": "Transfert en transe, immunité, régénération puis malaise."
+          },
+          {
+            "name": "Martyr",
+            "type": "Réflexif",
+            "description": "Transfère dommages subis à la prochaine attaque."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Chevalier du Dragon",
+      "aspect": "Vie",
+      "alignements": {
+        "Rédemption": [
+          {
+            "name": "Parle animal",
+            "type": "1 Action",
+            "description": "Communique et ordonne aux animaux."
+          },
+          {
+            "name": "Potion de Restauration",
+            "type": "Spécial",
+            "description": "Crée 1 potion curative (soin, antidote, concentration, purification)."
+          },
+          {
+            "name": "Invocation d’Esprit",
+            "type": "1 Action",
+            "description": "Donne compétence forestière spéciale."
+          }
+        ],
+        "Ferveur": [
+          {
+            "name": "Potion de Poison",
+            "type": "Spécial",
+            "description": "Crée 1 potion ou pâte de poison (douleur, venin, confusion, sommeil)."
+          },
+          {
+            "name": "Embuscade",
+            "type": "1 Action, Maintenue",
+            "description": "Attaque surprise automatique + dégâts."
+          },
+          {
+            "name": "Marque du Chasseur",
+            "type": "1 Action",
+            "description": "Marque cible, perçoit direction et état."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Chasseur de Démons",
+      "aspect": "Ombre",
+      "alignements": {
+        "Rédemption": [
+          {
+            "name": "Malédictions",
+            "type": "1 Action, Maintenue",
+            "description": "Réduit attribut de la cible, ignore la défense."
+          },
+          {
+            "name": "Miroir",
+            "type": "Réflexif",
+            "description": "Renvoie dégâts magiques au lanceur."
+          },
+          {
+            "name": "Invocation Démoniaque",
+            "type": "Rituel, 5 Actions",
+            "description": "Invoque serviteur démoniaque."
+          }
+        ],
+        "Ferveur": [
+          {
+            "name": "Vengeance",
+            "type": "1 Action, Maintenue",
+            "description": "Transe : immunité, +dégâts, stop après tours."
+          },
+          {
+            "name": "Terreur",
+            "type": "Social vs Social, 1 Action",
+            "description": "Inflige peur et dégâts à l’Égo."
+          },
+          {
+            "name": "Sombre Coupure",
+            "type": "Physique vs Physique, 1 Action",
+            "description": "Attaque inflige dégâts + niveau au Vitalité."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Vigile",
+      "aspect": "Chaos",
+      "alignements": {
+        "Rédemption": [
+          {
+            "name": "Focus",
+            "type": "1 Action",
+            "description": "Guérit Confusion et régénère Focus."
+          },
+          {
+            "name": "Paradox",
+            "type": "1 Action, Maintenue",
+            "description": "Brise réalité, isole cible."
+          },
+          {
+            "name": "Échec critique",
+            "type": "Réflexif",
+            "description": "Transforme un échec en échec critique."
+          }
+        ],
+        "Ferveur": [
+          {
+            "name": "Chao",
+            "type": "1 Action, Social vs Mental",
+            "description": "Rend cible Chaotique."
+          },
+          {
+            "name": "Hasard",
+            "type": "1 Action",
+            "description": "Effet aléatoire (dépression, soin, etc.)."
+          },
+          {
+            "name": "Greffe",
+            "type": "Concentration, 2 Actions",
+            "description": "Greffe membre d’une créature, ajoute atout."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Réprouvés",
+      "aspect": "Mort",
+      "alignements": {
+        "Rédemption": [
+          {
+            "name": "Paix",
+            "type": "1 Action",
+            "description": "Guérit Égo."
+          },
+          {
+            "name": "Sentence",
+            "type": "Concentration, 3 Actions",
+            "description": "Pèse l’âme, marque coupable."
+          },
+          {
+            "name": "Communication avec les morts",
+            "type": "1 Action, Maintenue",
+            "description": "Pose questions aux morts."
+          }
+        ],
+        "Ferveur": [
+          {
+            "name": "Fl

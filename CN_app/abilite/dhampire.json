@@ -1,0 +1,150 @@
+{
+  "raciale": [
+    {
+      "nom": "Sang Maudit",
+      "type": "action",
+      "description": "Recouvre une arme de son sang pour infliger des dégâts de vitalité supplémentaires."
+    },
+    {
+      "nom": "Endurance",
+      "type": "passif",
+      "description": "Conserve un score de Physique même à 0 vitalité ; indifférent à la douleur."
+    },
+    {
+      "nom": "Concentration",
+      "type": "passif",
+      "description": "Conserve un score Mental même à 0 focus ; ajoute 1 dégât mental par niveau."
+    },
+    {
+      "nom": "6e Sens",
+      "type": "réflexif",
+      "description": "Permet de détecter des entités invisibles en dépensant un point."
+    },
+    {
+      "nom": "Rapidité",
+      "type": "passif",
+      "description": "Gain de déplacement +2 par niveau ; permet des esquives/parades."
+    },
+    {
+      "nom": "Instinct de Survie",
+      "type": "action",
+      "description": "Annule les repérages ou révèle un lieu sûr à proximité."
+    }
+  ],
+  "tribus": [
+    {
+      "tribu": "Seigneur de Sang",
+      "aspect": "Vie",
+      "jour": [
+        {
+          "nom": "Guérison",
+          "type": "action",
+          "description": "Soigne 1 point de vitalité par niveau."
+        },
+        {
+          "nom": "Manipulation Sanguine",
+          "type": "action maintenue",
+          "description": "Cristallise du sang pour créer/des objets jusqu’à X points."
+        },
+        {
+          "nom": "Assistant Sanguin",
+          "type": "action/concentration",
+          "description": "Invoque une créature de sang pour assistance."
+        }
+      ],
+      "nuit": [
+        {
+          "nom": "Torrent de Sang",
+          "type": "action",
+          "description": "Drainer le sang d’une cible à distance, inflige dégâts + vole vitalité."
+        },
+        {
+          "nom": "Lame de la Sangsue",
+          "type": "action",
+          "description": "Forge une arme de sang ; peut transformer les charges en potion de soin."
+        },
+        {
+          "nom": "Marionnette",
+          "type": "action/concentration",
+          "description": "Contrôle mental d’une cible sanglante pour quelques tours."
+        }
+      ]
+    },
+    {
+      "tribu": "Mortifère",
+      "aspect": "Mort",
+      "jour": [
+        {
+          "nom": "Parler aux Morts",
+          "type": "action/maintenue",
+          "description": "Discute mentalement avec un défunt."
+        },
+        {
+          "nom": "Ailes du Corbeau",
+          "type": "action",
+          "description": "Fait apparaître des ailes pour voler à vitesse X."
+        },
+        {
+          "nom": "Protection Runique",
+          "type": "rituel",
+          "description": "Trace un symbole pour repousser invocations nécromantiques."
+        }
+      ],
+      "nuit": [
+        {
+          "nom": "Lame Spectrale",
+          "type": "action/maintenue",
+          "description": "Invoque une épée spectrale avec parades et dégâts égal niveau."
+        },
+        {
+          "nom": "Hantise",
+          "type": "action",
+          "description": "Invoque des spectres pour harceler une cible, inflige dégâts au focus."
+        },
+        {
+          "nom": "Toucher Glacial",
+          "type": "action",
+          "description": "Gèle la cible, inflige dégâts vitalité et réduit son déplacement."
+        }
+      ]
+    },
+    {
+      "tribu": "Thalyseth",
+      "aspect": "Ordre",
+      "jour": [
+        {
+          "nom": "Désynchronisation accélérée",
+          "type": "action",
+          "description": "Cible perçoit le temps ralenti ; gagne initiative et égalités."
+        },
+        {
+          "nom": "Morphéus",
+          "type": "action/maintenue",
+          "description": "Endort la cible ; inflige dégâts Focus et empêche le réveil."
+        },
+        {
+          "nom": "Chemin de Sable",
+          "type": "action/maintenue",
+          "description": "Crée un chemin rapide et sûr ; peut renvoyer agressifs à leur point de départ."
+        }
+      ],
+      "nuit": [
+        {
+          "nom": "Torrent de Sable",
+          "type": "action",
+          "description": "Projette du sable abrasif, inflige dégâts vitalité."
+        },
+        {
+          "nom": "Prison Temporelle",
+          "type": "action/maintenue",
+          "description": "Fige une cible en stase temporelle."
+        },
+        {
+          "nom": "Hypnotisme",
+          "type": "action",
+          "description": "Hypnotise pour exécuter des ordres simples."
+        }
+      ]
+    }
+  ]
+}

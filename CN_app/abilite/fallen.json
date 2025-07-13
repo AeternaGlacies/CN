@@ -1,0 +1,92 @@
+{
+  "Fallen": {
+    "pouvoirs_base": [
+      {"nom": "Sceptre Prothéus", "type": "Passif", "effet": "Ajoute 1 dommage aux attaques physiques faites avec le sceptre"},
+      {"nom": "Confiance en Soi", "type": "Passif", "effet": "Maintient un score Social = niveau×2 même à 0 Égo; +1 dommage social par niveau; immunité à la dépression"},
+      {"nom": "Vole Prothéus", "type": "1 Action", "effet": "Invoque des ailes; vitesse = 10 km/h par niveau; charge +50 kg par niveau"},
+      {"nom": "Touché par Mor'An", "type": "Passif", "effet": "Libération d’un contrôle physique/social/mental par niveau; 1 point par niveau par session"},
+      {"nom": "Capital", "type": "Social vs Social, 1 Action", "effet": "Choix d’une Vertu (Bénéfactor) ou Péché (Maléfactor); cible doit suivre trait la nuit; se libérer = subir dommages Égo = niveau"},
+      {"nom": "Contrat", "type": "Spécial", "effet": "Signature physique; contrôle total du Fallen sur le contrat (tampon dimensionnel, invocabilité…); violation = perte permanente d’un niveau; moissonnage de magie possible"}
+    ]
+  },
+  "Tribus": {
+    "Hérault": {
+      "aspect": "Lumière",
+      "Bénéfactor": [
+        {"nom": "Lame Prothéus", "type": "Réflexif", "effet": "Feu divin inflige 1 dmg Vitalité par niveau + confusion"},
+        {"nom": "Diplomatie", "type": "1 Action, Maintenue", "effet": "Empêche attaques physiques entre lui et cible pendant conversation; sortir = dommages Égo = niveau; tiers = Focus = niveau pour attaquer"},
+        {"nom": "Inspiration", "type": "1 Action", "effet": "Régénère 1 Égo par niveau sur cible; immunité à la Terreur pour tous présents"}
+      ],
+      "Maléfactor": [
+        {"nom": "Domination", "type": "Social vs Social, 1 Action", "effet": "Inflige 1 dmg Égo par niveau; cible ne peut attaquer socialement pendant 1 min×niveau"},
+        {"nom": "Torture", "type": "Social vs Mental, 1 Action", "effet": "Forces la cible à répondre; résist = Égo dmg = niveau"},
+        {"nom": "Armure Prothéus", "type": "Passif", "effet": "Fournit 1 point d’Armure par niveau"}
+      ]
+    },
+    "Veilleur": {
+      "aspect": "Ordre",
+      "Bénéfactor": [
+        {"nom": "Séduction", "type": "Social vs Social, 1 Action", "effet": "Inflige Égo = niveau; afflige Charme 1 min×niveau"},
+        {"nom": "Soin", "type": "1 Action", "effet": "Soigne 1 Vitalité par niveau"},
+        {"nom": "Arc Prothéus", "type": "1 Action, Maintenue", "effet": "Tire 2 flèches de lumière; lie dégâts et soins entre cibles"}
+      ],
+      "Maléfactor": [
+        {"nom": "Fouet Prothéus", "type": "1 Action", "effet": "Inflige plaisir+douleur, régénère Égo = niveau pour lui et cible"},
+        {"nom": "Désir sont tes Ordres", "type": "Social vs Mental, 1 Action", "effet": "Charm+ordre simple; nombre d’ordres = niveau; pas se mettre en danger"},
+        {"nom": "Sosie", "type": "1 Action, Maintenue", "effet": "Imite apparence parfaitement; détectable par détection de niveau ≥"}
+      ]
+    },
+    "Sentinelle": {
+      "aspect": "Vie",
+      "Bénéfactor": [
+        {"nom": "Zone Prothéus", "type": "1 Action, Concentration, Maintenue", "effet": "Guérit 1 Vitalité par niveau; +1 Physique bonus scène suivante"},
+        {"nom": "Vision Aérienne", "type": "5 Actions, Concentration, Maintenue", "effet": "Divination; une question niveau par niveau; 1 usage par lever de soleil"},
+        {"nom": "Parle Animal", "type": "Social vs Mental, 1 Action", "effet": "Commande un animal; ordre = 1 par niveau"}
+      ],
+      "Maléfactor": [
+        {"nom": "Chimère", "type": "1 Tour", "effet": "Se transforme; +niveau Physique; +1 dmg Vitalité par armes naturelles"},
+        {"nom": "Poison Prothéus", "type": "Instant", "effet": "Empêche régénération Vitalité jusqu’au prochain lever de soleil; 1 poison à la fois"},
+        {"nom": "Prédation", "type": "1 Action", "effet": "Marque cible; durée semaines = niveau; info sur Vitalité/faim/fatigue"}
+      ]
+    },
+    "Précurseur": {
+      "aspect": "Mort",
+      "Bénéfactor": [
+        {"nom": "Paix", "type": "1 Action", "effet": "Soigne Égo et/ou Focus selon niveau"},
+        {"nom": "Parler aux Morts", "type": "1 Action, Maintenue", "effet": "Communication mentale avec un mort; activations/session = niveau"},
+        {"nom": "Faux Prothéus", "type": "1 Action", "effet": "Neutralise nécromancie; empêche rez; régénère Égo; assure passage de l’âme"}
+      ],
+      "Maléfactor": [
+        {"nom": "Décrépitude", "type": "1 Action", "effet": "Vitalité –1 par niveau (vic) ou +1 par niveau (Mort‑vivant)"},
+        {"nom": "Faucille Prothéus", "type": "Social vs Physique, 1 Action", "effet": "Dmg Égo = niveau; à 0 l’âme est jugée"},
+        {"nom": "Jugement de la Mort", "type": "1 Action", "effet": "Cible à 0 Égo subit dmg Vitalité/Égo/Focus à chaque crime tenté, durée = semaine × niveau; irréversible"}
+      ]
+    },
+    "Passeur": {
+      "aspect": "Ombre",
+      "Bénéfactor": [
+        {"nom": "Cape Prothéus", "type": "1 Action, Maintenue", "effet": "Invisibilité tant immobile; détection via niveau supérieur du pouvoir"},
+        {"nom": "Poche Dimensionnelle", "type": "Spécial", "effet": "Stockage objets; nombre max = niveau; taille max = 3 ft³ chacun"},
+        {"nom": "Téléporteur", "type": "Rituel, 1 scène/porte", "effet": "Crée portes jumelles; maintenance mensuelle; portes × niveau par session"}
+      ],
+      "Maléfactor": [
+        {"nom": "Portail", "type": "1 Action", "effet": "Connecte deux portes 20 m; bidirectionnel; portes/session = niveau"},
+        {"nom": "Chaîne Prothéus", "type": "Spécial", "effet": "Lame sur chaîne; scie; dmg Vitalité = niveau; empêche movement"},
+        {"nom": "Bannissement", "type": "Social vs Mental, 1 Action", "effet": "Bannit invocation; niveau = force requise"}
+      ]
+    },
+    "Invocateur": {
+      "aspect": "Chaos",
+      "Bénéfactor": [
+        {"nom": "Masque Prothéus", "type": "1 Action", "effet": "Transformation d’apparence totale; +1 Subterfuge/niveau"},
+        {"nom": "Illumination", "type": "Réflexif", "effet": "Contre une attaque/effet; points = niveau"},
+        {"nom": "Révélation", "type": "1 Action", "effet": "Régénère Focus = niveau; dissipe la Confusion"}
+      ],
+      "Maléfactor": [
+        {"nom": "Énigme", "type": "Mental vs Mental, 1 Action", "effet": "Cible paralysée mentalement jusqu’à solution ou aide; coût Focus"},
+        {"nom": "Couteau Prothéus", "type": "1 Action", "effet": "Brûle Essence/Focus = niveau en dégâts, pas Vitalité"},
+        {"nom": "Mutation", "type": "1 Action", "effet": "Redistribution stats Phys/Social/Mental = ×2 par niveau pour 1 scène"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "race": [
+    {
+      "nom": "Force",
+      "type": "Passif, Lycan",
+      "description": "Conserve score Physique = niveau×2, ajoute +1 dommage/niveau, indifférent à la douleur."
+    },
+    {
+      "nom": "Parle esprit",
+      "type": "Passif, Lycan",
+      "description": "Communique avec esprits, invoque # = niveau par session."
+    },
+    {
+      "nom": "Brsrkr",
+      "type": "Réflexif",
+      "description": "A la perte de ≥1 Égo, entre en rage, immunisé aux effets débilitants, régénère +1 Vitalité/tour pour # tours = niveau."
+    },
+    {
+      "nom": "Primate",
+      "type": "1 Action",
+      "description": "Sous forme humaine, invoque un trait Lycan temporaire par niveau."
+    },
+    {
+      "nom": "Regénération",
+      "type": "1 Action, Maintenue, Concentration, Lycan",
+      "description": "Régénère +1 Vitalité/tour en repos; 1 activation/ niveau/session."
+    },
+    {
+      "nom": "Anima",
+      "type": "Passif",
+      "description": "Adopte forme Anima; per trait Lycan intégré par niveau."
+    }
+  ],
+  "tribus": [
+    {
+      "tribu": "Rage d'Eden",
+      "alignements": {
+        "Rage": [
+          {
+            "nom": "Coup Puissant",
+            "type": "1 Action",
+            "description": "+1 dommage/ niveau à attaque physique."
+          },
+          {
+            "nom": "Territorial",
+            "type": "Réflexif",
+            "description": "Au sein de territoire lié à Vie, peut réussir automatiquement jets + égalités & détecte intrusions; usages = niveau/session."
+          },
+          {
+            "nom": "Prédation",
+            "type": "1 Action",
+            "description": "Inflige 1 dommage Égo/niveau sans test; combine Intimidation."
+          }
+        ],
+        "Spirituel": [
+          {
+            "nom": "Purification",
+            "type": "Concentration, Maintenue",
+            "description": "Purifie zone = 5 ft×niveau; corrompus reçoivent 1 dommage/tour."
+          },
+          {
+            "nom": "Soin",
+            "type": "1 Action",
+            "description": "Restaure +1 Vitalité/niveau via contact."
+          },
+          {
+            "nom": "Invocation d’esprit",
+            "type": "1 Action",
+            "description": "En forêt, gagne Point Compétence spéciale = niveau pour jets liés à forêt."
+          }
+        ]
+      }
+    },
+    {
+      "tribu": "Gardien d'Azure",
+      "alignements": {
+        "Rage": [
+          {
+            "nom": "Vengeance",
+            "type": "1 Action, Maintenue",
+            "description": "Lorsqu’un allié est en Douleur, entre en transe vengeresse: immunisé à Douleur/Confusion, inflige + niveau dommage Vitalité; durée = tours = niveau."
+          },
+          {
+            "nom": "Destruction",
+            "type": "1 Action, Physique vs Physique",
+            "description": "Détruit un objet non magique; usages = niveau/session."
+          },
+          {
+            "nom": "À L'ABORDAGE!",
+            "type": "Réflexif",
+            "description": "Si initie l’attaque, égalités gagnées automatiquement pour scène; usages = niveau."
+          }
+        ],
+        "Spirituel": [
+          {
+            "nom": "Pluie Volcanique",
+            "type": "1 Action",
+            "description": "Projette débris volcanique à 20 m; inflige dégâts = niveau + brûlure."
+          },
+          {
+            "nom": "Élémentaliste",
+            "type": "1 Action, Concentration, Maintenue",
+            "description": "Manipule un élément (Terre, eau, vent ou feu) à 10 m; dégâts = niveau."
+          },
+          {
+            "nom": "Survivant",
+            "type": "1 Action, 1 Scène",
+            "description": "Ignore 1 dégât/ niveau dans environnements extrêmes."
+          }
+        ]
+      }
+    },
+    {
+      "tribu": "Main‑Rouge",
+      "alignements": {
+        "Rage": [
+          {
+            "nom": "Avantage",
+            "type": "1 Action",
+            "description": "Analyse cible, gagne point Avantage pour réussir automatiquement actions contre elle."
+          },
+          {
+            "nom": "Assassina",
+            "type": "1 Action, Physique vs Physique",
+            "description": "Téléporte ×3 distance et frappe dos, +1 vitalité/niveau; non esquivable ou parable sauf 6e Sens."
+          },
+          {
+            "nom": "Grotesque",
+            "type": "1 Action",
+            "description": "Transfert 2 stats par niveau entre Physique/Social/Mental; dure 1 scène."
+          }
+        ],
+        "Spirituel": [
+          {
+            "nom": "Invocation des Esprits de Destruction",
+            "type": "Rituel, 5 Actions, Concentration",
+            "description": "Invoque esprits déstructeurs; # = niveau; stats Physique = Mental du mage."
+          },
+          {
+            "nom": "Outre‑Monde",
+            "type": "1 Action",
+            "description": "Ouvre portail vers Outre‑Monde; amène # personnes = niveau."
+          },
+          {
+            "nom": "Diplomacie",
+            "type": "1 Action, Social vs Social, Maintenue",
+            "description": "Empêche attaques physiques entre cible et lui; briser = dégâts Égo = niveau."
+          }
+        ]
+      }
+    },
+    {
+      "tribu": "Architecte",
+      "alignements": {
+        "Rage": [
+          {
+            "nom": "Outil de l'Artiste",
+            "type": "Spécial",
+            "description": "Lie un outil non magique; dépenser 1 pt/niveau pour action immédiate liée à son usage."
+          },
+          {
+            "nom": "Canon Intégré",
+            "type": "1 Action, Physique vs Physique",
+            "description": "Canon corporel inflige +1 dégât/niveau; variété de projectiles; profite bonus Lycan."
+          },
+          {
+            "nom": "Armure",
+            "type": "Passif",
+            "description": "Gagne +1 point Armure/niveau."
+          }
+        ],
+        "Spirituel": [
+          {
+            "nom": "Magnétisme",
+            "type": "1 Action, Concentration, Maintenue",
+            "description": "Manipule objets magnétiques à 10 m; soulève 100 lb × niveau; attaque Mental vs Physique inflige +1/niveau."
+          },
+          {
+            "nom": "ANIMAtronique",
+            "type": "3 Actions, Maintenue",
+            "description": "Transformation semi‑lycan/semi‑mécha; forme pilotable; intègre trait animal par niveau."
+          },
+          {
+            "nom": "Assistant Automate",
+            "type": "Rituel, 5 Tours, Concentration",
+            "description": "Crée # automates = niveau; Physique = niveau; petites capacités utilitaires."
+          }
+        ]
+      }
+    },
+    {
+      "tribu": "Oracle",
+      "alignements": {
+        "Rage": [
+          {
+            "nom": "Point de Pression",
+            "type": "1 Action, Physique vs Physique",
+            "description": "Attaque chakra ; inflige 1 Vitalité, ne tue pas, inconscience possible."
+          },
+          {
+            "nom": "Palme du Dragon Céleste",
+            "type": "1 Action, Physique vs Physique",
+            "description": "Vent repoussant sur ligne, repousse 1 pas/niveau, chute si échec +1 tour."
+          },
+          {
+            "nom": "Ultra Instinct",
+            "type": "Réflexif",
+            "description": "Gagne +1 compétence esquive/parade/désarmer; toutes égalités réussies."
+          }
+        ],
+        "Spirituel": [
+          {
+            "nom": "6ième Sens",
+            "type": "Réflexif",
+            "description": "Détecte entités invisibles; ouvre 3e œil 5 min; usage par niveau?"
+          },
+          {
+            "nom": "Respiration",
+            "type": "1 Action, Social vs Mental",
+            "description": "Calme cible; guérit +1 Focus/niveau."
+          },
+          {
+            "nom": "Nuage Magique",
+            "type": "1 Action",
+            "description": "Permet vol à 20 km/h×niveau; transport 100 kg×niveau; nuage vitalité = niveau."
+          }
+        ]
+      }
+    },
+    {
+      "tribu": "Mycosite",
+      "alignements": {
+        "Rage": [
+          {
+            "nom": "Poison",
+            "type": "Réflexif",
+            "description": "Libère spores après attaque ; 1 dommage/niveau persistant tant que non purifié."
+          },
+          {
+            "nom": "Charognard",
+            "type": "1 Action, Maintenu",
+            "description": "Dévore cadavre/inconscient ; convertit Physique cible en Vitalité/Égo/Focus."
+          },
+          {
+            "nom": "Contagion",
+            "type": "Réflexif",
+            "description": "Dégâts de zone autour de cible = niveau, touche alliés aussi."
+          }
+        ],
+        "Spirituel": [
+          {
+            "nom": "Torture",
+            "type": "1 Action, Maintenue",
+            "description": "Physique vs Physique ; pour chaque résistance/la cible pourrit subit +1 Vitalité+Focus; immunité potentielle."
+          },
+          {
+            "nom": "Mucus",
+            "type": "1 Action",
+            "description": "Crache mucus colle 1 h ; libération via Physique ≥ niveau×2 & jet."
+          },
+          {
+            "nom": "Explosion Morbide",
+            "type": "1 Action",
+            "description": "Fait exploser cadavre, dégâts niveau rayon 3 m; affecte zombies."
+          }
+        ]
+      }
+    }
+  ]
+}

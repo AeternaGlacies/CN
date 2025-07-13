@@ -1,0 +1,83 @@
+{
+  "généraux": [
+    {"nom": "Détection", "type": "Action", "description": "Détecte l’affiliation d’un individu à un Aspect."},
+    {"nom": "Érudie", "type": "Spécial", "description": "Permet d’apprendre des pouvoirs d’autres écoles."},
+    {"nom": "Contre‑Magie", "type": "Réflexif", "description": "Annule un pouvoir magique ciblé."},
+    {"nom": "Manifuge", "type": "Spécial", "description": "Absorbe temporairement l’Essence d’un pouvoir."},
+    {"nom": "Concentration", "type": "Passif", "description": "Améliore la stabilité des sorts."},
+    {"nom": "Æther", "type": "Spécial", "description": "Ajoute des effets visuels aux sorts."}
+  ],
+  "écoles": {
+    "Nécromancien": {
+      "rituel": [
+        {"nom": "Invocation de l'Âme", "description": "Fait apparaître un esprit pour obtenir des informations."},
+        {"nom": "Protection contre la Mort", "description": "Protège contre les attaques mortelles."},
+        {"nom": "Zombie", "description": "Ressuscite un cadavre comme serviteur."}
+      ],
+      "libération": [
+        {"nom": "Projectile Spectral", "description": "Lance une boule d’énergie spectrale."},
+        {"nom": "Vade‑Retro", "description": "Repousse une cible avec une onde d’énergie."},
+        {"nom": "Décrépitude", "description": "Affaiblit un ennemi en accélérant sa dégradation."}
+      ]
+    },
+    "Biomancien": {
+      "rituel": [
+        {"nom": "Invocation de la Plante Vitale", "description": "Fait pousser une plante médicinale."},
+        {"nom": "Parler aux vivants", "description": "Communique avec les plantes et les animaux."},
+        {"nom": "Vision Aérienne", "description": "Permet de voir à distance à travers les yeux d'un oiseau."}
+      ],
+      "libération": [
+        {"nom": "Féral", "description": "Accorde des caractéristiques animales temporaires."},
+        {"nom": "Vitalité Accélérée", "description": "Accélère la guérison des blessures."},
+        {"nom": "Prison de Ronce", "description": "Enferme une cible dans une cage de ronces."}
+      ]
+    },
+    "Technomancien": {
+      "rituel": [
+        {"nom": "Mécanisation Ionique", "description": "Transforme un objet en une machine temporaire."},
+        {"nom": "Transmutation", "description": "Change la composition d'un objet."},
+        {"nom": "Zone d’Ordre", "description": "Crée une zone où la magie est régulée."}
+      ],
+      "libération": [
+        {"nom": "Réparation Temporaire", "description": "Répare rapidement un objet endommagé."},
+        {"nom": "Éclair", "description": "Lance un éclair d'énergie électrique."},
+        {"nom": "Autodidacte", "description": "Permet d'apprendre rapidement une compétence technique."}
+      ]
+    },
+    "Vorticien": {
+      "rituel": [
+        {"nom": "Désintégration", "description": "Détruit un objet ou une cible par l'entropie."},
+        {"nom": "Malchance", "description": "Provoque des accidents ou des échecs."},
+        {"nom": "Menteur", "description": "Modifie la perception de la vérité."}
+      ],
+      "libération": [
+        {"nom": "Entropie", "description": "Accélère la dégradation d'un objet ou d'une structure."},
+        {"nom": "Destruction", "description": "Détruit une zone ciblée."},
+        {"nom": "Explosif", "description": "Crée une explosion d'énergie."}
+      ]
+    },
+    "Exalté": {
+      "rituel": [
+        {"nom": "Voyage Astral", "description": "Permet de voyager hors du corps."},
+        {"nom": "Talisman", "description": "Crée un objet magique protecteur."},
+        {"nom": "Eau Bénite", "description": "Purifie un lieu ou une personne."}
+      ],
+      "libération": [
+        {"nom": "Smite", "description": "Inflige des dégâts sacrés à un ennemi."},
+        {"nom": "Soin", "description": "Guérit les blessures."},
+        {"nom": "Ailes de Céleste", "description": "Accorde la capacité de voler temporairement."}
+      ]
+    },
+    "Cultiste": {
+      "rituel": [
+        {"nom": "Invocation du Serviteur Cosmique", "description": "Appelle une entité cosmique pour obtenir de l'aide."},
+        {"nom": "Démonologie", "description": "Permet de communiquer avec des démons."},
+        {"nom": "Téléporteur", "description": "Permet de se téléporter sur une courte distance."}
+      ],
+      "libération": [
+        {"nom": "Marche‑Ombre", "description": "Permet de se déplacer dans les ombres."},
+        {"nom": "Terreur des Abysses", "description": "Provoque une peur intense."},
+        {"nom": "Torrent Abyssal", "description": "Lance une vague d'énergie sombre."}
+      ]
+    }
+  },
